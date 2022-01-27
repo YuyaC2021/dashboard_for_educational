@@ -1,0 +1,59 @@
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: 0;
+}
+@mixin flexing($direct:row,$justify:center,$align:center){
+    display: flex;
+    flex-direction: $direct;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+#admin_dash{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.253);
+    padding: 50px 0;
+    @include flexing;
+
+    #registe_form{
+        @include flexing($direct:column,$justify:space-evenly);
+        background-color: rgba(252, 252, 252, 0.637);
+        width:400px;
+        padding: 20px 20px;
+        &>div{
+            margin: 20px;
+            &:last-child{// id=contentpage
+                font-size: 18px;
+                padding: 10px;
+                &>div{// id=firstpage
+                    @include flexing($direct:column);
+                    &>div{
+                        &>div{
+                            input, select{
+                                font-size: 16px;
+                                border: none;
+                                outline: none;
+                                margin-top: 20px;
+                            }
+                            margin: 30px 0;
+                        }
+                        &:last-child{
+                            width: 100%;
+                            @include flexing($justify:space-between);
+                            span{
+                                background-color: rgba(128, 128, 128, 0.527);
+                                padding: 5px 10px;
+                                &:hover{
+                                    background-color: rgba(128, 128, 128, 0.836);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
